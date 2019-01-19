@@ -1,5 +1,6 @@
 package com.cash.gator.swampapp;
 
+import android.content.Intent;
 import android.os.Bundle;
 import android.support.design.widget.FloatingActionButton;
 import android.support.design.widget.Snackbar;
@@ -20,7 +21,7 @@ public class MainActivity extends AppCompatActivity {
     //submitButton, type Button
 
     //java code
-    int balance;
+    public int balance;
 
     //ties to XML
     EditText balanceOutput_;
@@ -48,13 +49,23 @@ public class MainActivity extends AppCompatActivity {
             {
                 balance = Integer.valueOf(balanceOutput_.getText().toString());
 
+                Toast.makeText(getBaseContext(), "This is the balance inputted:" + balance,
+                        Toast.LENGTH_SHORT).show();
+
+
+                openActivity();
             }
 
         });
 
+    }
+    public int getBalance() {
+        return balance;
+    }
 
-
-
+    public void openActivity() {
+        Intent intent = new Intent(this, HomeActivity.class);
+        startActivity(intent);
     }
 
 }
