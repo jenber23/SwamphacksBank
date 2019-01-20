@@ -25,9 +25,9 @@
             android:parentActivityName=".MainActivity">
             <meta-data
                 android:name="android.support.PARENT_ACTIVITY"
-                android:value="com.cash.gator.swampapp.MainActivity"/>
-
+                android:value="com.cash.gator.swampapp.MainActivity" />
         </activity>
+        <activity android:name=".SpendingActivity"></activity>
     </application>
 
 </manifest>

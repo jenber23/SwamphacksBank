@@ -21,7 +21,7 @@ public class MainActivity extends AppCompatActivity {
     //submitButton, type Button
 
     //java code
-    public int balance;
+    int balance;
 
     //ties to XML
     EditText balanceOutput_;
@@ -42,29 +42,28 @@ public class MainActivity extends AppCompatActivity {
 
         submitButton_ = (Button) findViewById(R.id.submitButton);
 
-        submitButton_.setOnClickListener(new View.OnClickListener()
-        {
-            @Override
-            public void onClick(View v)
-            {
-                balance = Integer.valueOf(balanceOutput_.getText().toString());
+            submitButton_.setOnClickListener(new View.OnClickListener() {
+                @Override
+                public void onClick(View v) {
+                    balance = Integer.valueOf(balanceOutput_.getText().toString());
 
-                Toast.makeText(getBaseContext(), "This is the balance inputted:" + balance,
-                        Toast.LENGTH_SHORT).show();
+                    Toast.makeText(getBaseContext(), "This is the balance inputted:" + balance,
+                            Toast.LENGTH_SHORT).show();
 
 
-                openActivity();
-            }
+                    openActivity();
+                }
 
-        });
+            });
 
-    }
-    public int getBalance() {
-        return balance;
+        //intent bundle send over to next activity
+
+
     }
 
     public void openActivity() {
         Intent intent = new Intent(this, HomeActivity.class);
+        intent.putExtra("Balance", balanceOutput_.getText().toString());
         startActivity(intent);
     }
 
