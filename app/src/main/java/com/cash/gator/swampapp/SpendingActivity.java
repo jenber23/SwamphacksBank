@@ -30,21 +30,18 @@ public class SpendingActivity extends AppCompatActivity {
 
                 Toast.makeText(getBaseContext(), "This is the amount inputted:" + amountSpent,
                         Toast.LENGTH_SHORT).show();
-
-
                 openActivity();
             }
 
         });
-
     }
-
     public void openActivity() {
         Intent intent = new Intent(this, HomeActivity.class);
         Bundle bundle = new Bundle();
-        bundle.putString("Balance",moneySpent.getText().toString());
+        bundle.putString("Spended",moneySpent.getText().toString());
 
-        intent.putExtra("Spent", moneySpent.getText().toString());
+        intent.putExtra("Spent", bundle);
+        //intent.putExtra("Spent", moneySpent.getText().toString());
         startActivity(intent);
     }
 }

@@ -22,20 +22,20 @@ public class HomeActivity extends AppCompatActivity {
 
         textDisplay = (TextView) findViewById(R.id.textView2);
 
-        Bundle bundle = getIntent().getExtras();
+        Bundle bundle = getIntent().getBundleExtra("Balance");
+        Bundle bundle2 = getIntent().getBundleExtra("Spent");
 
-            if (bundle != null && bundle.containsKey("Balance")) {
+            if (bundle != null) {
                 value = bundle.getString("Balance");
                 textDisplay.setText(value);
             }
-            else if(bundle != null && bundle.containsKey("Spend")){
+            else if(bundle2 != null){
                 int temp = Integer.valueOf(value);
                 amount = bundle.getString("Spent");
                 int a = Integer.valueOf(amount);
                 value = String.valueOf(temp - a);
                 textDisplay.setText(value);
             }
-
 
             go2Main = (Button) findViewById(R.id.goMain);   //back button
             go2Spending = (Button) findViewById(R.id.spend);    //spend button

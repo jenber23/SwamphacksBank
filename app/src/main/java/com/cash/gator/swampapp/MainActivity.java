@@ -13,13 +13,7 @@ import android.widget.Button;
 import android.widget.EditText;
 import android.widget.Toast;
 
-
-
 public class MainActivity extends AppCompatActivity {
-
-//balanceOuput, type int/number
-    //submitButton, type Button
-
     //java code
     int balance;
 
@@ -34,10 +28,6 @@ public class MainActivity extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
 
-
-        //actual edited code//
-
-        //type editText
         balanceOutput_ = (EditText) findViewById(R.id.balanceOutput);
 
         submitButton_ = (Button) findViewById(R.id.submitButton);
@@ -49,23 +39,19 @@ public class MainActivity extends AppCompatActivity {
 
                     Toast.makeText(getBaseContext(), "This is the balance inputted:" + balance,
                             Toast.LENGTH_SHORT).show();
-
-
                     openActivity();
                 }
 
             });
-
-        //intent bundle send over to next activity
-
-
     }
-
     public void openActivity() {
         Intent intent = new Intent(this, HomeActivity.class);
-        intent.putExtra("Balance", balanceOutput_.getText().toString());
+        Bundle bundle = new Bundle();
+        bundle.putString("Balanced",balanceOutput_.getText().toString());
+
+        intent.putExtra("Balance", bundle);
+        //intent.putExtra("Balance", balanceOutput_.getText().toString());
         startActivity(intent);
     }
-
 }
 
